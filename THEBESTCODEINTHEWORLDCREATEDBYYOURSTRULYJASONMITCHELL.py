@@ -117,7 +117,9 @@ while True:
     choice = input("Enter your choice (1/2/3/4): ")
 
     if choice == "1":
+      # Simulate Ethereum transactions based on user input
         num_transactions = int(input("Enter the number of transactions you want to simulate: "))
+
         for _ in range(num_transactions):
             print("\nAvailable Wallets:")
             for i, wallet in enumerate(ethereal_wallets):
@@ -151,6 +153,7 @@ while True:
 
             # Add a 1-second delay
             time.sleep(1)
+
 
         print("Transactions simulated successfully!")
 
