@@ -5,9 +5,9 @@ import time
 from datetime import datetime
 
 # Sample list of Ethereal wallet addresses
-ethereal_wallets = ["0xWallet1", "0xWallet2", "0xWallet3", "0xWallet4", "0xWallet5"]
+ethereal_wallets = [f"0xWallet{i}" for i in range(1, 6)]
 
-# Initialize a dictionary to store wallet balances with default balance of 0
+# Initialize a dictionary to store wallet balances with a default balance of 0
 wallet_balances = {wallet: 0 for wallet in ethereal_wallets}
 
 # Initialize an empty list to store transactions
@@ -113,9 +113,9 @@ while True:
     print("2. Display Wallet Balances")
     print("3. Display Blockchain")
     print("4. Exit")
-    
+
     choice = input("Enter your choice (1/2/3/4): ")
-    
+
     if choice == "1":
         num_transactions = int(input("Enter the number of transactions you want to simulate: "))
         for _ in range(num_transactions):
@@ -154,33 +154,7 @@ while True:
 
         print("Transactions simulated successfully!")
 
-
     elif choice == "2":
         # Display wallet balances
         print("\nWallet Balances:")
-        for wallet, balance in wallet_balances.items():
-            print(f"{wallet}: {balance} ETH")
-    
-    elif choice == "3":
-        # Display the blockchain
-        print("\nBlockchain:")
-        for block in blockchain.chain:
-            print(f"Block {block['index']}:")
-            print(f"- Timestamp: {datetime.utcfromtimestamp(block['timestamp']).strftime('%Y-%m-%d %H:%M:%S')} UTC")
-            print(f"- Previous Hash: {block['previous_hash']}")
-            print(f"- Proof: {block['proof']}")
-            print(f"- Transactions:")
-            
-            for transaction in block['transactions']:
-                print(f"  - Sender: {transaction['sender']}")
-                print(f"  - Receiver: {transaction['recipient']}")
-                print(f"  - Amount: {transaction['amount']} ETH")
-    
-    elif choice == "4":
-        # Save data and exit
-        save_data()
-        print("Thank you for using Ethereal Blockchain Simulator! Goodbye.")
-        break
-    
-    else:
-        print("Invalid choice. Please select a valid option (1/2/3/4).")
+       
