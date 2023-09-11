@@ -157,4 +157,22 @@ while True:
     elif choice == "2":
         # Display wallet balances
         print("\nWallet Balances:")
-       
+        for wallet, balance in wallet_balances.items():
+            print(f"{wallet}: {balance} ETH")
+
+    elif choice == "3":
+        # Display the blockchain
+        print("\nBlockchain:")
+        for block in blockchain.chain:
+            print(f"Block {block['index']}:")
+            print(f"- Timestamp: {datetime.utcfromtimestamp(block['timestamp']).strftime('%Y-%m-%d %H:%M:%S')} UTC")
+            print(f"- Previous Hash: {block['previous_hash']}")
+            print(f"- Proof: {block['proof']}")
+            print(f"- Transactions:")
+
+            for transaction in block['transactions']:
+                print(f"  - Sender: {transaction['sender']}")
+                print(f"  - Receiver: {transaction['recipient']}")
+                print(f"  - Amount: {transaction['amount']} ETH")
+
+        
