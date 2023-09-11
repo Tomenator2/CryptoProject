@@ -146,10 +146,14 @@ while True:
             # Add the transaction to the blockchain
             blockchain.new_transaction(sender, receiver, eth_amount)
 
+            # Save the updated data to the JSON file
+            save_data()
+
             # Add a 1-second delay
             time.sleep(1)
-            
+
         print("Transactions simulated successfully!")
+
 
     elif choice == "2":
         # Display wallet balances
