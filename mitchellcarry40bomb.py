@@ -7,8 +7,8 @@ from datetime import datetime
 # Sample list of Ethereal wallet addresses
 ethereal_wallets = [f"0xWallet{i}" for i in range(1, 6)]
 
-# Initialize a dictionary to store wallet balances with a default balance of 0
-wallet_balances = {wallet: 0 for wallet in ethereal_wallets}
+# Initialize a dictionary to store wallet balances with initial random balances
+wallet_balances = {wallet: round(random.uniform(1, 100), 2) for wallet in ethereal_wallets}
 
 # Initialize an empty list to store transactions
 transactions = []
@@ -117,7 +117,9 @@ while True:
     choice = input("Enter your choice (1/2/3/4): ")
 
     if choice == "1":
+      # Simulate Ethereum transactions based on user input
         num_transactions = int(input("Enter the number of transactions you want to simulate: "))
+
         for _ in range(num_transactions):
             print("\nAvailable Wallets:")
             for i, wallet in enumerate(ethereal_wallets):
@@ -151,6 +153,7 @@ while True:
 
             # Add a 1-second delay
             time.sleep(1)
+
 
         print("Transactions simulated successfully!")
 
